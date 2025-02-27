@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #000000;
+}
+
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("assets/fonts/MS-Sans-Serif.woff2") format("woff2"),
+      url('assets/fonts/MS-Sans-Serif.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-msserif: "MS Sans Serif", sans-serif;
+}
+
+.border98 {
+  box-shadow: 
+  inset -1px -1px #0a0a0a,
+  inset 1px 1px #fff,
+  inset -2px -2px grey,
+  inset 2px 2px #dfdfdf; 
+}
+
+.border98active {
+  box-shadow: 
+  inset -1px -1px #ffffff,
+  inset 1px 1px #0a0a0a,
+  inset -2px -2px #dfdfdf,
+  inset 2px 2px #808080;
+}
+
+@keyframes xp-loading {
+  0% { transform: translateX(-10rem); }
+  100% { transform: translateX(12rem); }
+}
+
+.animate-xp-loading {
+  animation: xp-loading 2.5s linear infinite;
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; }  /* Başta ve sonda görünmez */
+  50% { opacity: 1; }       /* Ortada tamamen görünür */
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 2s ease-in-out infinite; /* 2 saniyede bir loop */
+}
