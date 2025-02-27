@@ -86,7 +86,7 @@ const Startup = ({ setHasLaunched }) => {
             setShowCursor(true);
           }, 200);
 
-          // Phase 1 tamamlandıktan sonra 3 saniye bekleyip Phase 2'ye geç
+          // Phase 1 completed. 3 seconds wait before Phase 2
           setTimeout(() => setPhase(2), 3000);
           return;
         }
@@ -168,7 +168,7 @@ const Startup = ({ setHasLaunched }) => {
         return;
       }
 
-      // ❌ Maksimum deneme sayısına ulaşıldıysa, hata mesajı göster
+      // ❌ Max try limit reached!
       console.error("❌ OAuth timeout: Login failed after multiple attempts.");
       setInfoText("OAuth process took too long. Please refresh the page.");
       setLoggingIn(false);
@@ -192,7 +192,7 @@ const Startup = ({ setHasLaunched }) => {
         </div>
       )}
 
-      {/* PHASE 2 - Windows XP Tarzı Loading */}
+      {/* PHASE 2 - Windows XP Loading */}
       {(phase === 2 || phase === 3) && (
         <div
           onClick={logIn}
@@ -221,15 +221,15 @@ const Startup = ({ setHasLaunched }) => {
               phase === 3 ? "visibilty" : "hidden"
             } transition-opacity duration-300 animate-fade-in-out`}
           >
-            <p className="italic">{infoText}</p>
+            <p className="italic select-none">{infoText}</p>
           </div>
 
-          {/* Sol altta Powered by Celestia */}
+          {/* Powered by Celestia */}
           <div className="absolute bottom-10 left-20 text-gray-100 text-sm">
             Built on <span className="italic">Celestia</span>
           </div>
 
-          {/* Sağ alt köşede SVG */}
+          {/* Para SVG */}
           <div className="absolute bottom-10 right-20 flex text-gray-100 gap-2">
             <p className="mt-auto mb-0 leading-[15px]">Powered by</p>
             <img className="w-[100px]" src="assets/para.svg" alt="" />

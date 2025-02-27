@@ -8,7 +8,7 @@
 const Taskbar = () => {
   return (
     <div
-      className="flex items-center px-2 bg-[#c1c1c1] h-[32px] w-full border-white border-t-2 justify-between"
+      className="flex items-center px-2 bg-[#c1c1c1] h-[32px] w-full border-white border-t-2 justify-between select-none"
       style={{ boxShadow: "inset 0 -1px #000" }}
     >
       {/* Start Button */}
