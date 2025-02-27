@@ -21,6 +21,7 @@ app.use(
     cors({
         origin: config.frontendUrl,
         credentials: true,
+        sameSite: "None"
     })
 );
 
