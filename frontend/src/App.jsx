@@ -5,7 +5,7 @@ import { Startup } from "./components/UI";
 function App() {
   const [hasLaunched, setHasLaunched] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [inMaintenance, setInMaintenance] = useState(true);
+  const inMaintenance = import.meta.env.VITE_STATUS;
 
   /**
    * Monitors screen size changes to ensure the application runs only on desktop devices.
@@ -28,7 +28,6 @@ function App() {
       audio.play().catch((error) => console.log("Audio playback failed:", error));
     }
   }, [hasLaunched])
-  
   
   /**
    * Displays a simulated "Blue Screen of Death" (BSoD) if the screen is too small.
@@ -56,30 +55,32 @@ function App() {
     );
   }
 
-  if (inMaintenance) {
+  if (inMaintenance === "MAINTENANCE") {
     return (
       <div className="flex flex-col justify-center items-center w-screen h-screen bg-[#001f3f] text-white text-center px-4 font-mono">
         <p className="text-6xl">🦣</p>
-        <p className="text-xl font-bold mt-4">MammothOS Has Frozen Over! ❄️</p>
+        <p className="text-xl font-bold mt-4">MammothOS is Taking a Mammoth Nap! 😴❄️</p>
         <p className="text-lg mt-2">
-          Our integration with <strong>Para Wallet</strong> has reached the <strong>maximum herd capacity</strong>.  
+          Even the mightiest mammoth needs a little rest and refresh! 🦣💨
         </p>
         <p className="mt-4">
-          Turns out, even a mammoth-sized system can get overwhelmed! 🦣💨  
-          We’re working at **mammoth speed** to make room for more explorers.  
+          We’re busy sharpening our tusks, tuning up our ice-age tech, and making the system
+          even stronger for all explorers.
         </p>
         <p className="mt-4">
-          Stay warm and hang tight—we’ll **unfreeze the tundra** and reopen the site soon!  
+          Hang tight—the tundra will be open for adventures again soon! ❄️
         </p>
         <p className="text-sm mt-8">
           <strong>Technical Info:</strong> <br />
-          ERROR_CODE: <span className="text-yellow-400">🦣_MAX_HERD_REACHED</span> <br />
-          SYSTEM STATUS: Temporary Ice Age 🧊
+          STATUS: <span className="text-yellow-400">Mammoth Maintenance Mode 🛠️</span><br />
+          ESTIMATED RETURN: As soon as we shake off the frost! ⏳
         </p>
         <p className="mt-6 text-sm">
-          Follow our migration updates on <a href="https://x.com/mammothos" target="_blank" className="text-blue-400 underline">X</a>.  
+          Stay updated on our migration journey via <a href="https://x.com/mammothos" target="_blank" className="text-blue-400 underline">X</a>. 
         </p>
-        <div className="mt-8 text-sm opacity-70">Thank you for your patience—no mammoths were harmed in this process. 🦣</div>
+        <div className="mt-8 text-sm opacity-70">
+          No mammoths were harmed during this maintenance. 🦣
+        </div>
       </div>
     );
   }

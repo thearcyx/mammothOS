@@ -17,7 +17,7 @@ const activeOAuthSessions = new Map();
 
 // Create a ParaServer instance
 function createParaInstance() {
-  return new ParaServer(Environment.BETA, config.paraApiKey);
+  return new ParaServer(Environment.PROD, config.paraApiKey);
 }
 
 /**

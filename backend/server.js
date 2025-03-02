@@ -175,15 +175,6 @@ app.get("/getWallet", verifyLoggedIn, async (req, res) => {
     }
 });
 
-// Graceful Shutdown Handling
-process.removeAllListeners("SIGINT"); 
-process.on("SIGINT", () => {
-    console.log("\nShutting down server gracefully...");
-    process.exit(0);
-});
-
-process.on('warning', e => console.warn(e.stack));
-
 // Start the server
 app.listen(config.port, () => {
     console.log(`✅ Server is running on port ${config.port}`);

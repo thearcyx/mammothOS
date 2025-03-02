@@ -38,15 +38,15 @@ const Documents = () => {
             "MammothOS",
             "Celestia",
             "Mammoths Overlord",
+            "Forma",
             "Encode",
-            "Vitalik",
             "Arcyx",
-            "Halitemir",
+            "HalitEmir",
             "Brscn"
           ].map((folderName) => (
             <div key={folderName} className="flex flex-col w-[70px] text-[15px] items-center h-[100px]">
               <img className="w-[50px]" src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" alt={`${folderName} Folder`} />
-              <p>{folderName}</p>
+              <p className="text-center">{folderName}</p>
             </div>
           ))}
         </div>
