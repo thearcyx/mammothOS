@@ -25,13 +25,13 @@ export const fetchWallet = async () => {
 export async function mintNFT(tokenId) {
   try {
     const wallet = await fetchWallet();
-    const recipient = wallet.address;
+    //const recipient = wallet.address;
     
     if(wallet.ownedMammothOSBadges.includes(tokenId)) {
       return { success: false, txReceipt: null, message: "NFT already minted." };
     }
-
-    const response = await fetch(`${API_URL}/mintNFT`, {
+    return { success: false, txReceipt: null, message: "NFT minting has been paused." };
+    /*const response = await fetch(`${API_URL}/mintNFT`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export async function mintNFT(tokenId) {
 
     const data = await response.json();
 
-    return data;
+    return data;*/
   } catch (error) {
     console.error("❌ Minting Error:", error);
     alert("An error occurred while minting.");

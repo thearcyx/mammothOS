@@ -111,6 +111,8 @@ const Popup = ({ title, message, closePopup, gameName }) => {
       );
     } else if (response.message === "NFT already minted.") {
       setCompletion("This NFT has already been minted and cannot be duplicated!");
+    } else if (response.message === "NFT minting has been paused.") {
+        setCompletion("NFT minting has been paused.");
     } else {
       console.error(response.errorMessage);
       setCompletion("An error occurred while minting!");
